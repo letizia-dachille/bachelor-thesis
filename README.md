@@ -1,6 +1,7 @@
 # Bachelor's thesis
-Thesis in Computational Algebra. <br>
-Title: "Linear algebra on modules and Buchberger's algorithm".
+Thesis in Computational Algebra (Italian). <br>
+Title (Italian): "Algebra lineare su moduli e algoritmo di Buchberger". <br>
+Title (English): "Linear algebra on modules and Buchberger's algorithm".
 
 # License
 The content of this project itself is licensed under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license, and the underlying source code used to format and display that content is licensed under the [General Public License v3.0](https://github.com/letizia-dachille/bachelor-thesis/blob/main/LICENSE).
