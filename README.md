@@ -1,5 +1,5 @@
 # Bachelor's thesis
-Thesis in Computational Algebra (Italian). <br>
+Thesis in Computational Algebra - Language:Italian. <br>
 Title (Italian): "Algebra lineare su moduli e algoritmo di Buchberger". <br>
 Title (English): "Linear algebra on modules and Buchberger's algorithm".
 
