@@ -1,0 +1,12 @@
+//Confronto con algoritmo di Gauss - Instabilità numerica
+
+use P::=QQ[x1,x2,x3];
+I1:=ideal(3*x1-2*x2-7*x3,5*x1-7*x2+5*x3,2*x1-5*x2-6*x3);
+L1:=gens(I1);
+L11:=[];
+for i:=1 to len(L1) do
+	append (ref L11, coefficients(L1[i],[x1,x2,x3]));
+endfor;
+M1 := matrix(L11);
+rref(M1);
+ReducedGBasis(I1);

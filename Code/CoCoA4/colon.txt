@@ -1,0 +1,17 @@
+//Esempio 2.3.2
+
+Use R ::= Q[x,y], PosTo, Lex;
+
+G1 := [x,y];
+G2 := [y,x];
+L := [G1,G2];
+M := Module(L);
+A := Transposed(Mat(M));
+
+G3 := [[x^2],[y^2]];
+G4 := [[y^2],[x^2]];
+
+C := Transposed(BlockMatrix([[A,0,G3],[0,A,G4],[0,0,[[1]]]]));
+M1 := Module(C);
+
+Transposed(Mat(ReducedGBasis(M1)));

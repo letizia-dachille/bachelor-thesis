@@ -1,0 +1,10 @@
+//Equazioni diofantee - Applicazione Proposizione 2.2.1
+
+Use R ::= Q[x], PosTo, Lex;
+
+G1 := [x^5+x^3+4*x^2-6*x+12, 1, 0];
+G2 := [x^4-x^3-3*x-9, 0, 1];
+L := [G1,G2];
+M := Module(L);
+A := Transposed(Mat(M));
+Transposed(Mat(ReducedGBasis(M)));
