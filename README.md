@@ -1,5 +1,5 @@
 # Bachelor's thesis
-Thesis in Computational Algebra. 
+Thesis in Computational Algebra. <br>
 Title: "Linear algebra on modules and Buchberger's algorithm".
 
 # License
