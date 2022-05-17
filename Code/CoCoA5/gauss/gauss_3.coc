@@ -1,0 +1,128 @@
+//Confronto con algoritmo di Gauss - Passi algoritmo di Buchberger (moduli generici)
+
+use R::=QQ[x,y],lex;
+R3 := NewFreeModule(R, 3);
+G1:= ModuleElem(R3,[x*y,x,y]);
+G2:= ModuleElem(R3,[y^2+y,x+y^2,x]);
+G3:= ModuleElem(R3,[-x,y,x]);
+G4:= ModuleElem(R3,[y^2,y,x]);
+L := [G1,G2,G3,G4];
+M :=submodule(R3,L);
+A:= GensAsCols(M);
+indent(ReducedGBasis(M));
+
+S := (lcm(LPP(G1),LPP(G3))/LM(G1[1]))*G1-(lcm(LPP(G1),LPP(G3))/LM(G3[1]))*G3;
+
+//NR(S,L);
+G5:=ModuleElem(R3,[0,0,0]);;
+while S<>ModuleElem(R3,[0,0,0]) do
+	Flag := 0;
+	foreach G in L do
+		If (LPosn(S)=LPosn(G) and IsDivisible(LPP(S),LPP(G))) Then
+			Flag := 1;
+			S := S - ((LM(S[LPosn(S)]))/(LM(G[LPosn(G)])))*G;
+		EndIf;
+		If Flag = 1 Then
+			break;
+		EndIf;
+	endforeach;
+	If Flag = 0 Then
+		G5 := G5 + LM(S);
+		S := S - LM(S);
+	EndIf;
+EndWhile;
+
+append(ref L, G5);
+
+S := (lcm(LPP(G1),LPP(G5))/LM(G1[1]))*G1-(lcm(LPP(G1),LPP(G5))/LM(G5[1]))*G5;
+
+//NR(S,L);
+G6:=ModuleElem(R3,[0,0,0]);;
+while S<>ModuleElem(R3,[0,0,0]) do
+	Flag := 0;
+	foreach G in L do
+		If (LPosn(S)=LPosn(G) and IsDivisible(LPP(S),LPP(G))) Then
+			Flag := 1;
+			S := S - ((LM(S[LPosn(S)]))/(LM(G[LPosn(G)])))*G;
+		EndIf;
+		If Flag = 1 Then
+			break;
+		EndIf;
+	endforeach;
+	If Flag = 0 Then
+		G6 := G6 + LM(S);
+		S := S - LM(S);
+	EndIf;
+EndWhile;
+
+append(ref L, G6);
+
+//Tra G3,G5 S-vettore si riduce a 0
+
+S := (lcm(LPP(G3),LPP(G5))/LM(G3[1]))*G3-(lcm(LPP(G3),LPP(G5))/LM(G5[1]))*G5;
+
+//NR(S,L);
+G0:=ModuleElem(R3,[0,0,0]);;
+while S<>ModuleElem(R3,[0,0,0]) do
+	Flag := 0;
+	foreach G in L do
+		If (LPosn(S)=LPosn(G) and IsDivisible(LPP(S),LPP(G))) Then
+			Flag := 1;
+			S := S - ((LM(S[LPosn(S)]))/(LM(G[LPosn(G)])))*G;
+		EndIf;
+		If Flag = 1 Then
+			break;
+		EndIf;
+	endforeach;
+	If Flag = 0 Then
+		G0 := G0 + LM(S);
+		S := S - LM(S);
+	EndIf;
+EndWhile;
+
+S := (lcm(LPP(G2),LPP(G6))/LM(G2[2]))*G2-(lcm(LPP(G2),LPP(G6))/LM(G6[2]))*G6;
+
+//NR(S,L);
+G7:=ModuleElem(R3,[0,0,0]);;
+while S<>ModuleElem(R3,[0,0,0]) do
+	Flag := 0;
+	foreach G in L do
+		If (LPosn(S)=LPosn(G) and IsDivisible(LPP(S),LPP(G))) Then
+			Flag := 1;
+			S := S - ((LM(S[LPosn(S)]))/(LM(G[LPosn(G)])))*G;
+		EndIf;
+		If Flag = 1 Then
+			break;
+		EndIf;
+	endforeach;
+	If Flag = 0 Then
+		G7 := G7 + LM(S);
+		S := S - LM(S);
+	EndIf;
+EndWhile;
+
+append(ref L, G7);
+
+//Tra G4,G7 S-vettore si riduce a 0
+
+S := (lcm(LPP(G4),LPP(G7))/LM(G4[3]))*G4-(lcm(LPP(G4),LPP(G7))/LM(G7[3]))*G7;
+
+//NR(S,L);
+G0:=ModuleElem(R3,[0,0,0]);;
+while S<>ModuleElem(R3,[0,0,0]) do
+	Flag := 0;
+	foreach G in L do
+		If (LPosn(S)=LPosn(G) and IsDivisible(LPP(S),LPP(G))) Then
+			Flag := 1;
+			S := S - ((LM(S[LPosn(S)]))/(LM(G[LPosn(G)])))*G;
+		EndIf;
+		If Flag = 1 Then
+			break;
+		EndIf;
+	endforeach;
+	If Flag = 0 Then
+		G0 := G0 + LM(S);
+		S := S - LM(S);
+	EndIf;
+EndWhile;
+

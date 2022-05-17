@@ -1,0 +1,12 @@
+//Confronto con algoritmo di Gauss - Caso ordinamento lessicografico
+
+Use R ::= Q[x], PosTo, Lex;
+
+G1 := [x^2, x, x];
+G2 := [x^2 + x, x^2 + x, x];
+G3 := [x + 1, x^2, x];
+G4 := [x^2 + 2, 2*x, -x^3 + 4*x];
+L := [G1,G2,G3];
+M := Module(L);
+A := Transposed(Mat(M));
+Transposed(Mat(ReducedGBasis(M)));

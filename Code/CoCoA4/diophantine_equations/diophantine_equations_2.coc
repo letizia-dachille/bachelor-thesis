@@ -1,0 +1,11 @@
+//Equazioni diofantee - Applicazione Proposizione 2.2.2 (Caso senza soluzione)
+
+Use R ::= Q[x], PosTo, Lex;
+
+G1 := [x^2-2*x-3, 1, 0, 0];
+G2 := [x^5-11*x^3+4*x^2+18*x-36, 0, 1, 0];
+G3 := [x^4-x^3-12*x^2+9*x+27, 0, 0, 1];
+L := [G1,G2,G3];
+M := Module(L);
+A := Transposed(Mat(M));
+Transposed(Mat(ReducedGBasis(M)));

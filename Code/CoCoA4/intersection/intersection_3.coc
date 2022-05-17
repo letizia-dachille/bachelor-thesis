@@ -1,0 +1,32 @@
+Use R ::= Q[x,y], PosTo, Lex;
+
+G1 := [x*y,y,x];
+G2 := [y^2,y,x];
+G3 := [x,-y,-y];
+L := [G1,G2,G3];
+M := Module(L);
+A := Transposed(Mat(M));
+
+G4 := [0,x-y,x-y];
+G5 := [x,x,x];
+G6 := [0,0,x^2+x+y^2-y-2*x*y];
+G7 := [0,x^2+x,x^2+x];
+L := [G4,G5,G6,G7];
+N := Module(L);
+B := Transposed(Mat(N));
+
+//Algoritmo Esempio 2.2.2
+
+C := Transposed(BlockMatrix([[A,B],[0,B]]));
+M1 := Module(C);
+
+ReducedGBasis(M1);
+
+//Algoritmo Esempio 2.3.1
+
+Id := Identity(3);
+
+D := Transposed(BlockMatrix([[Id,A,0],[Id,0,B],[Id,0,0]]));
+M2 := Module(D);
+
+ReducedGBasis(M2);
