@@ -3,6 +3,8 @@ Thesis in Computational Algebra - Language: Italian. <br>
 Title (Italian): <em>Algebra lineare su moduli e algoritmo di Buchberger</em>. <br>
 Title (English): <em>Linear algebra on modules and Buchberger's algorithm</em>.
 
+Supervisor: Professor Massimo Caboara
+
 The source code in CoCoA can be found in [Code](https://github.com/letizia-dachille/bachelor-thesis/blob/main/Code/) folder.
 
 # Description
